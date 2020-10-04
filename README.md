@@ -1,2 +1,2 @@
-# eventos
-Aplicación web para buscar y ver los eventos.
+# Eventos App
+Aplicación web responsiva para buscar y visualizar eventos en una zona determinada
