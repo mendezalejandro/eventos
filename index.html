@@ -1,6 +1,6 @@
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Eventos</title>
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -17,9 +17,38 @@
     <!-- header -->
     <div class="header">
       <header>
-          <div class="header-logo"><a href="./index.html">Logo</a></div>
-          <div class="header-title">Eventos App</div>
+        <ul class="header-menu">
+          <li class="header-logo"><a href="./index.html">Logo</a></li>
+          <li class="header-title">Eventos App</li>
+          <li class="header-contact"><a href="pages/contact.html">Contacto</a></li>
+        </ul>
       </header>
+    </div>
+    <div class="filtersContainer">
+      <div class="filterTitle">Buscar</div>
+      <form>
+        <div class="filter">
+          <label class="filterLabel">Filtro 1: </label>
+          <div class="filterInputContainer">
+            <input class="filterInput" type="text">
+          </div>
+        </div>
+        <div class="filter">
+          <label class="filterLabel">Filtro 2: </label>
+          <div class="filterInputContainer">
+            <input class="filterInput" type="text">
+          </div>
+        </div>
+        <div class="filter">
+          <label class="filterLabel">Filtro 3: </label>
+          <div class="filterInputContainer">
+            <input class="filterInput" type="text">
+          </div>
+        </div>
+      </form>
+      <div class="filterButtonContainer">
+        <button class="filterButton">Buscar</button>
+      </div>
     </div>
   </body>
 

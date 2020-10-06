@@ -3,42 +3,223 @@ main.css:
     -Contiene las clases que se utilizan solo en la pagina principal
 */
 
-/* header*/
-.header {
+/* Móviles en vertical o tablets en vertical*/
+@media (min-width: 320px) {
+  /* header*/
+  .header {
     width: 100%;
-    height: 70px;
+    height: 60px;
     top: 0;
-    position: fixed;
     background: #3f1c80;
-}
-.header-logo {
-    float:left;
+  }
+  .header-menu {
+    margin: 0;
+    padding: 0;
+  }
+  .header-logo {
+    float: left;
     width: 70px;
-    height: 70px;
+    height: 100%;
+    background: #7857b6;
+    background-repeat: no-repeat;
+    background-size: 70px 70px;
+  }
+  .header-title {
+    float: left;
+    margin-left: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 400 30px/1 Helvetica, Arial, sans-serif;
+    font-weight: bold;
+  }
+  .header-contact {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #7857b6;
+  }
+
+  /* filters*/
+  .filtersContainer {
+    width: 100%;
+    height: 400px;
+    background-color: #a2a0a5;
+  }
+
+  .filterTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 400 25px/1 Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #514c57;
+    padding-bottom: 20px;
+  }
+
+  .filterLabel {
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    font: 400 25px/1 Helvetica, Arial, sans-serif;
+    padding-left: 20px;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #514c57;
+  }
+  .filterInputContainer {
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* margin: 5px 20px 5px 20px; */
+  }
+  .filterInput {
+    width: 100%;
+    height: 100%;
+  }
+  .filterButtonContainer {
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* margin: 5px 20px 5px 20px; */
+  }
+  .filterButton {
+    width: 100%;
+    height: 100%;
+  }
+  /* footer */
+  .footer-title {
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    font: 400 16px/1.5 Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    background-color: #3f1c80;
+  }
+}
+
+/* Móviles en horizontal o tablets en vertical*/
+@media (min-width: 480px) {
+  /* header*/
+  .header {
+    width: 100%;
+    height: 60px;
+    top: 0;
+    background: #3f1c80;
+  }
+  .header-menu {
+    margin: 0;
+    padding: 0;
+  }
+  .header-logo {
+    float: left;
+    width: 70px;
+    height: 100%;
     background: #7857b6;
     /* background-image: url('../img/logotipo.png');*/
     background-repeat: no-repeat;
     background-size: 70px 70px;
-}
-.header-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    font: 400 40px/1 Helvetica,Arial,sans-serif;
+  }
+  .header-title {
+    float: left;
+    margin-left: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 400 30px/1 Helvetica, Arial, sans-serif;
     font-weight: bold;
-}
+  }
+  .header-contact {
+    float: right;
+    width: 120px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #7857b6;
+  }
 
-/* footer */
-.footer-title {
-  height: 20px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  margin: 0;
-  text-align: center;
-  font: 400 16px/1.5 Helvetica,Arial,sans-serif;
-  font-weight: bold;
-  background-color: #3f1c80;
+  /* filters*/
+  .filtersContainer {
+    width: 100%;
+    height: 150px;
+    background-color: #a2a0a5;
+  }
+
+  .filter {
+      float: left;
+      width: 33%;
+  }
+  .filterTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 400 25px/1 Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    height: 40px;
+    background-color: #514c57;
+    padding-bottom: 20px;
+  }
+
+  .filterLabel {
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    font: 400 25px/1 Helvetica, Arial, sans-serif;
+    height: 30px;
+    background-color: #514c57;
+  }
+  .filterInputContainer {
+    height: 50px;
+    /* margin: 5px 20px 5px 20px; */
+  }
+  .filterInput {
+    width: 100%;
+    height: 100%;
+  }
+  .filterButtonContainer {
+    height: 50px;
+    /* margin: 5px 20px 5px 20px; */
+  }
+  .filterButton {
+    width: 100%;
+    height: 100%;
+  }
+  /* footer */
+  .footer-title {
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    font: 400 16px/1.5 Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    background-color: #3f1c80;
+  }
+
+  /* footer */
+  .footer-title {
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    font: 400 16px/1.5 Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    background-color: #3f1c80;
+  }
 }
