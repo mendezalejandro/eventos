@@ -8,7 +8,7 @@ main.css:
   /* header*/
   .header {
     width: 100%;
-    height: 60px;
+    height: 50px;
     top: 0;
     background: #3f1c80;
   }
@@ -39,15 +39,15 @@ main.css:
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 70px;
     height: 100%;
     background: #7857b6;
   }
 
   /* filters*/
   .filtersContainer {
-    width: 100%;
-    height: 400px;
+    padding-top: 5px;
+    height: 250px;
     background-color: #a2a0a5;
   }
 
@@ -55,28 +55,27 @@ main.css:
     display: flex;
     justify-content: center;
     align-items: center;
-    font: 400 25px/1 Helvetica, Arial, sans-serif;
+    font: 400 20px/1 Helvetica, Arial, sans-serif;
     font-weight: bold;
-    height: 40px;
+    height: 20px;
     margin-left: 20px;
     margin-right: 20px;
     background-color: #514c57;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
   }
-
   .filterLabel {
     display: flex;
     justify-content: start;
     align-items: flex-end;
-    font: 400 25px/1 Helvetica, Arial, sans-serif;
-    padding-left: 20px;
-    height: 30px;
+    font: 400 15px/1 Helvetica, Arial, sans-serif;
+    padding-left: 10px;
+    height: 20px;
     margin-left: 20px;
     margin-right: 20px;
     background-color: #514c57;
   }
   .filterInputContainer {
-    height: 50px;
+    height: 35px;
     margin-left: 20px;
     margin-right: 20px;
     /* margin: 5px 20px 5px 20px; */
@@ -86,14 +85,94 @@ main.css:
     height: 100%;
   }
   .filterButtonContainer {
-    height: 50px;
+    height: 35px;
     margin-left: 20px;
     margin-right: 20px;
-    /* margin: 5px 20px 5px 20px; */
   }
   .filterButton {
     width: 100%;
     height: 100%;
+  }
+
+   /* results */
+ .cardsContainer{
+  position: fixed;
+  top: 305px;
+  bottom: 20px; 
+  padding-top: 15px;
+  left: 0;
+  right: 0;
+  background-color: #514c57;
+  overflow-y: auto; 
+  }
+  .cards{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .card {
+    flex: 1 1 calc(100% - 1em);
+    background-color: #a2a0a5;
+    height: 220px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .card-title{
+    height: 10%;
+    background-color: #707099;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-image{
+    height: 60%;
+    background-color: #161625;
+  }
+  .card-image img{
+    position: center;
+    width: 100%;
+    height: 100%;
+  }
+  .card-description-container{
+    width: 100%;
+    height: 30%;
+    float: left;
+  }
+  .card-description{
+    width: 80%;
+    height: 100%;
+    float: left;
+  }
+  .card-share{
+    width: 20%;
+    height: 100%;
+    background-color: #292981;
+    float: left;
+  }
+  .card-share button{
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    text-align: center;
+    text-justify: auto;
+  }
+  .card-info{
+    height: 33%;
+    width: 100%;
+  }
+  .card-info-title{
+    width: 30%;
+    float: left;
+    background-color: #6666a8;
+  }
+  .card-info-data{
+    width: 70%;
+    float: left;
+    background-color: #3e3eb4;
   }
   /* footer */
   .footer-title {
@@ -111,115 +190,53 @@ main.css:
 
 /* Móviles en horizontal o tablets en vertical*/
 @media (min-width: 480px) {
-  /* header*/
-  .header {
-    width: 100%;
-    height: 60px;
-    top: 0;
-    background: #3f1c80;
-  }
-  .header-menu {
-    margin: 0;
-    padding: 0;
-  }
-  .header-logo {
-    float: left;
-    width: 70px;
-    height: 100%;
-    background: #7857b6;
-    /* background-image: url('../img/logotipo.png');*/
-    background-repeat: no-repeat;
-    background-size: 70px 70px;
-  }
-  .header-title {
-    float: left;
-    margin-left: 20px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font: 400 30px/1 Helvetica, Arial, sans-serif;
-    font-weight: bold;
-  }
-  .header-contact {
-    float: right;
-    width: 120px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #7857b6;
-  }
-
   /* filters*/
   .filtersContainer {
-    width: 100%;
-    height: 150px;
-    background-color: #a2a0a5;
+    height: 135px;
   }
-
-  .filter {
+  .filterForm{
+    height: 55px;
+    margin: 0px;
+  }
+  .filterStart {
       float: left;
       width: 33%;
   }
-  .filterTitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font: 400 25px/1 Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    height: 40px;
-    background-color: #514c57;
-    padding-bottom: 20px;
+  .filterMiddle {
+    float: left;
+    width: 33%;
   }
-
-  .filterLabel {
-    display: flex;
-    justify-content: start;
-    align-items: flex-end;
-    font: 400 25px/1 Helvetica, Arial, sans-serif;
-    height: 30px;
-    background-color: #514c57;
-  }
-  .filterInputContainer {
-    height: 50px;
-    /* margin: 5px 20px 5px 20px; */
-  }
-  .filterInput {
-    width: 100%;
-    height: 100%;
+  .filterEnd {
+    float: right;
+    width: 33%;
   }
   .filterButtonContainer {
-    height: 50px;
-    /* margin: 5px 20px 5px 20px; */
+    margin-top: 10px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .filterButton {
-    width: 100%;
-    height: 100%;
-  }
-  /* footer */
-  .footer-title {
-    height: 20px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    margin: 0;
-    text-align: center;
-    font: 400 16px/1.5 Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    background-color: #3f1c80;
+    width: 180px;
   }
 
-  /* footer */
-  .footer-title {
-    height: 20px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    margin: 0;
-    text-align: center;
-    font: 400 16px/1.5 Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    background-color: #3f1c80;
+ /* results */
+ .cardsContainer{
+    top: 190px; 
   }
+}
+
+@media (min-width: 768px) {
+
+  /* results */
+ .card {
+   flex: 0 1 calc(50% - 1em);
+ }
+}
+@media (min-width: 1024px) {
+  /* results */
+ .card {
+   flex: 0 1 calc(28% - 1em);
+ }
 }

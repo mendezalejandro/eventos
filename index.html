@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/enviroment.js"></script>
+    <script src="./js/service.js"></script>
     <script src="./js/main.js"></script>
   </head>
 
@@ -25,31 +26,37 @@
       </header>
     </div>
     <div class="filtersContainer">
-      <div class="filterTitle">Buscar</div>
-      <form>
-        <div class="filter">
-          <label class="filterLabel">Filtro 1: </label>
+      <div class="filterTitle">Buscar eventos por: </div>
+      <form class="filterForm">
+        <div class="filter filterStart">
+          <label class="filterLabel">Nombre: </label>
           <div class="filterInputContainer">
-            <input class="filterInput" type="text">
+            <input id="inputNombre" class="filterInput" type="text">
           </div>
         </div>
-        <div class="filter">
-          <label class="filterLabel">Filtro 2: </label>
+        <div class="filter filterMiddle">
+          <label class="filterLabel">Categoria: </label>
           <div class="filterInputContainer">
-            <input class="filterInput" type="text">
+            <input id="inputCategoria" class="filterInput" type="text">
           </div>
         </div>
-        <div class="filter">
-          <label class="filterLabel">Filtro 3: </label>
+        <div class="filter filterEnd">
+          <label class="filterLabel">Fecha: </label>
           <div class="filterInputContainer">
-            <input class="filterInput" type="text">
+            <input id="inputFecha" class="filterInput" type="text">
           </div>
         </div>
       </form>
       <div class="filterButtonContainer">
-        <button class="filterButton">Buscar</button>
+        <button class="filterButton" id="searchButton">Buscar</button>
       </div>
     </div>
+    <div class="cardsContainer">
+      <section class="cards" id="cards">
+
+      </section>
+    </div>
+    
   </body>
 
   <!-- footer -->
