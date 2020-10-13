@@ -7,24 +7,91 @@ main.js:
 $( document ).ready(function() {
     // asocio las funciones en los botones
     bind();
+    load()
 });
-
+/**Asocia las funciones a los botones */
 function bind()
 {
     $("#searchButton").bind("click", buscarEventos); 
 }
+/**Carga la info en los inputs */
+function load()
+{
+    loadCategorias();
+    loadFechas();
+}
+/**Busca y carga las categorias en el select de jqueryui */
+function loadCategorias()
+{
+    var categorias = [];
+    // busco las categorias
+    getCategorias(function(data){
+
+        // cargo una lista de las categorias con el formato para el input
+        data._embedded.classifications.forEach(categoria => {
+            if(categoria.segment !== undefined)
+            {
+                categorias.push(categoria.segment.name);
+            }
+        });
+
+        // cargo las categorias al input
+        $("#inputCategoria").autocomplete({
+            source: categorias
+        });
+    });
+}
+/**Carga las fechas disponibles en el select de jqueryui */
+function loadFechas()
+{
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    var fechas = [];
+
+    for(var mes=0; mes<12; mes++)
+    {
+        const fechaReferencia = moment().add(mes, 'month');
+
+        const primerDia = fechaReferencia.startOf('month').format('yyyy-MM-DDTHH:mm:ss');
+        const ultimoDia   = fechaReferencia.endOf('month').format('yyyy-MM-DDTHH:mm:ss');
+        fechas.push({
+            label: meses[fechaReferencia.month()] +' '+fechaReferencia.year(),
+            value:{
+                fechaDesde: primerDia,
+                fechaHasta: ultimoDia
+            }
+        });
+    }
+
+    //localStartEndDateTime=2020-11-01T00:00:00,2020-11-01T00:00:00
+    // cargo las categorias al input
+    $("#inputFecha").autocomplete({
+        source: fechas,
+        focus: function( event, ui ) {
+            event.preventDefault();
+            $('#inputFecha').val(ui.item.label);
+          },
+        select: function( event, ui ) {
+           event.preventDefault();
+           $('#inputFecha').val(ui.item.label);
+           
+          }
+    });
+}
+
+/**Busca los eventos con los filtros elegidos */
 function buscarEventos()
 {
     // obtengo los parametros de busqueda
     const nombre = $('#inputNombre').val();
     const categoria = $('#inputCategoria').val();
-    const fecha = $('#inputFecha').val();
+    const fechas =  $('#inputFecha').autocomplete( "option", "source" ).find(value => value.label === $('#inputFecha').val());
+    const fecha = (fechas!==undefined ? fechas.value.fechaDesde+','+fechas.value.fechaHasta : '');
 
     // busco los eventos
-    getEventos(nombre,categoria,fecha,cargarEventos);
+    getEventos(nombre,categoria,fecha,loadEventos);
 }
-
-function cargarEventos(data)
+/**Carga los eventos encontrados en la pantalla */
+function loadEventos(data)
 {
     // limpio la información actual para insertar la nueva
     $("#cards").empty();
@@ -34,7 +101,7 @@ function cargarEventos(data)
         // busco la imagen del tamaño minimo
         var imagen;
         evento.images.forEach(image => {
-            if(image.width < 400)
+            if(image.width < 1024)
                 imagen= image.url;
             return false;
         });
@@ -53,7 +120,7 @@ function getNextResults(data)
     console.log(data);
 }
 
-
+/**Construye un tarjeta html que contiene la info de un evento */
 function buildCard(eventoID, titulo, imagen, ciudad, fecha, categoria)
 {
     var template =       

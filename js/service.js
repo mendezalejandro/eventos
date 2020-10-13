@@ -5,10 +5,12 @@ function getEventos(nombre, categoria, fecha, onSuccess, onFail)
     var params = 'events.json?';
     if(nombre!=='') params+='keyword='+nombre;
     if(categoria!=='') params+='&segmentName='+categoria;
-    if(fecha!=='') params+='&startDateTime='+fecha; //2020-11-21T00:00:00Z
+    if(fecha!=='') params+='&localStartEndDateTime='+fecha; //2020-11-21T00:00:00Z
 
     // hago un filtro general por pais españa y max de 25 items, para acortar un poco la busqueda
-    params+='&countryCode=ES&size=9&';
+    //params+='&countryCode=ES';
+    params+='&size=9';
+    params+='&';
 
     //ejecuto el request
     get(params, onSuccess, onFail);
@@ -22,6 +24,14 @@ function getEventoDetalle(id, onSuccess, onFail)
 
     //ejecuto el request
     get(params, onSuccess, onFail);
+}
+
+function getCategorias(onSuccess, onFail){
+        //preparo los parametros de busqueda
+        var params = 'classifications.json?';
+
+        //ejecuto el request
+        get(params, onSuccess, onFail);
 }
 
 /**Funcion que se utiliza como helper para realizar las peticiones en base a una url construida*/
