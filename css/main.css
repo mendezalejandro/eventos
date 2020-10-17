@@ -3,6 +3,10 @@ main.css:
     -Contiene las clases que se utilizan solo en la pagina principal
 */
 
+body{
+  background-color: #514c57;
+}
+
 /* Móviles en vertical o tablets en vertical*/
 @media (min-width: 320px) {
   /* header*/
@@ -10,7 +14,7 @@ main.css:
     width: 100%;
     height: 50px;
     top: 0;
-    background: #3f1c80;
+    background: var(--colorPrimario);
   }
   .header-menu {
     margin: 0;
@@ -20,7 +24,7 @@ main.css:
     float: left;
     width: 70px;
     height: 100%;
-    background: #7857b6;
+    background: var(--colorSecundario);
     background-repeat: no-repeat;
     background-size: 70px 70px;
   }
@@ -41,7 +45,7 @@ main.css:
     align-items: center;
     width: 70px;
     height: 100%;
-    background: #7857b6;
+    background: var(--colorSecundario);
   }
 
   /* filters*/
@@ -98,11 +102,10 @@ main.css:
  .cardsContainer{
   position: fixed;
   top: 305px;
-  bottom: 20px; 
+  bottom: 55px; 
   padding-top: 15px;
   left: 0;
   right: 0;
-  background-color: #514c57;
   overflow-y: auto; 
   }
   .cards{
@@ -123,7 +126,7 @@ main.css:
 
   .card-title{
     height: 10%;
-    background-color: #707099;
+    background-color: var(--colorTerciario);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,15 +150,21 @@ main.css:
     height: 100%;
     float: left;
   }
-  .card-share{
+  .card-share-detail{
     width: 20%;
     height: 100%;
-    background-color: #292981;
     float: left;
   }
-  .card-share button{
+  .card-share-button{
     width: 100%;
-    height: 100%;
+    height: 50%;
+    padding: 0%;
+    text-align: center;
+    text-justify: auto;
+  }
+  .card-detail-button{
+    width: 100%;
+    height: 50%;
     padding: 0%;
     text-align: center;
     text-justify: auto;
@@ -167,13 +176,73 @@ main.css:
   .card-info-title{
     width: 30%;
     float: left;
-    background-color: #6666a8;
+    background-color: var(--colorTerciario);
   }
   .card-info-data{
     width: 70%;
     float: left;
-    background-color: #3e3eb4;
+    background-color: var(--colorTerciario);
   }
+
+  /* pagination*/
+
+  .pagination {
+    bottom: 20px;
+    height: 30px;
+    left:0;
+    right: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: fixed;
+    
+    background-color: var(--colorTerciario);
+
+  }
+
+
+  .paginationLeft{
+    width: 10%;
+    height: 100%;
+    color: black;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .paginationCenter{
+    width: 80%;
+    height: 100%;
+    color: black;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .paginationRight{
+    width: 10%;
+    height: 100%;
+    color: black;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .paginationLeft button{
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    text-align: center;
+    text-justify: auto;
+  }
+  .paginationRight button{
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    text-align: center;
+    text-justify: auto;
+  }
+
   /* footer */
   .footer-title {
     height: 20px;
@@ -184,7 +253,7 @@ main.css:
     text-align: center;
     font: 400 16px/1.5 Helvetica, Arial, sans-serif;
     font-weight: bold;
-    background-color: #3f1c80;
+    background-color: var(--colorPrimario);
   }
 }
 
