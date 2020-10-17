@@ -1,0 +1,44 @@
+/* contiene las clases de las tarjetas*/
+@import "./card.css"; 
+
+/* 
+main.css:
+    -Contiene las clases que se utilizan solo en la pagina de historial
+*/
+
+/* Móviles en vertical o tablets en vertical*/
+@media (min-width: 320px) {
+  /* Info page*/
+  .pageInfoContainer {
+    padding-top: 5px;
+    height: 100px;
+    background-color: #a2a0a5;
+  }
+
+  .pageInfoTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 400 20px/1 Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #514c57;
+    padding-bottom: 5px;
+  }
+  .pageInfoContainer h3 {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: var(--colorSecundario);
+  }
+  .cardsContainer {
+    position: fixed;
+    top: 155px;
+    bottom: 20px;
+    padding-top: 15px;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+  }
+}

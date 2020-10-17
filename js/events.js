@@ -6,6 +6,7 @@ main.js:
 /**Variables */
 var pageInfo;
 var pagesController;
+var pageEvents={}; //diccionario de eventos
 var modal;
 /**Espero a que renderice el HTML */
 $( document ).ready(function() {
@@ -112,12 +113,16 @@ function loadEventos(data)
     // guardo la pagina actual
     pageInfo = data.page;
     pagesController = data._links;
+    pagesEvents = {};
 
     // limpio la información actual para insertar la nueva
     $("#cards").empty();
 
     // recorro la información obtenida y voy agregando las nuevas tarjetas
     data._embedded.events.forEach(evento => {
+        // guardo el evento en un diccionario para utilizarlo luego en el historial
+        pagesEvents[evento.id] = evento;
+
         // busco la imagen del tamaño minimo
         var imagen;
         evento.images.forEach(image => {
@@ -126,6 +131,7 @@ function loadEventos(data)
             return false;
         });
 
+        // construyo el html de la tarjeta del evento
         var cardHTML = buildCard(evento.id, evento.name, imagen, evento._embedded.venues[0].city.name, evento.dates.start.localDate, evento.classifications[0].segment.name);
         $(cardHTML).appendTo($("#cards"));
     });
@@ -133,6 +139,7 @@ function loadEventos(data)
     //updateo la paginacion
     loadPagination();
 }
+/** Carga la info correspondiente en la barra de paginación */
 function loadPagination(){
     // la primera vez que cargo la pantalla no tengo info
     if(pageInfo === undefined)
@@ -168,6 +175,10 @@ function getPrevPage()
 /** Abre el modal con el id de evento */
 function openDetail(eventoid)
 {
+    //guardo el evento de grilla seleccionado para el historial
+    sessionStorage.setItem(eventoid, JSON.stringify(pagesEvents[eventoid]));
+
+    //voy a buscar detalles del evento
     getEventoDetalle(eventoid, loadDetail);
 }
 
@@ -229,18 +240,9 @@ function buildCard(eventoID, titulo, imagen, ciudad, fecha, categoria)
               '</div>'+  
               '<div class="card-share-detail">'+
                 '<button class="card-share-button" role="link" onclick="openDetail(\''+eventoID+'\')">Detalle</button>'+
-                '<button class="card-detail-button" role="link" onclick="window.location=\'./pages/share.html?eventid='+eventoID+'\'">Compartir</button>'+
+                '<button class="card-detail-button" role="link" onclick="window.location=\'./share.html?eventid='+eventoID+'\'">Compartir</button>'+
               '</div>'+
           '</div>'+
         '</article>'
   return template;
 }
-
-
-function openMenu() {
-    document.getElementById("menu").style.width = "250px";
-  }
-  
-  function closeMenu() {
-    document.getElementById("menu").style.width = "0";
-  }

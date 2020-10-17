@@ -1,0 +1,98 @@
+/* 
+main.css:
+    -Contiene las clases que se utilizan en las cards de eventos
+*/
+
+/* Móviles en vertical o tablets en vertical*/
+@media (min-width: 320px) {
+    
+    .cards{
+      margin-left: 20px;
+      margin-right: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .card {
+      flex: 1 1 calc(100% - 1em);
+      background-color: #a2a0a5;
+      height: 220px;
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  
+    .card-title{
+      height: 10%;
+      background-color: var(--colorTerciario);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-image{
+      height: 60%;
+      background-color: #161625;
+    }
+    .card-image img{
+      position: center;
+      width: 100%;
+      height: 100%;
+    }
+    .card-description-container{
+      width: 100%;
+      height: 30%;
+      float: left;
+    }
+    .card-description{
+      width: 80%;
+      height: 100%;
+      float: left;
+    }
+    .card-share-detail{
+      width: 20%;
+      height: 100%;
+      float: left;
+    }
+    .card-share-button{
+      width: 100%;
+      height: 50%;
+      padding: 0%;
+      text-align: center;
+      text-justify: auto;
+    }
+    .card-detail-button{
+      width: 100%;
+      height: 50%;
+      padding: 0%;
+      text-align: center;
+      text-justify: auto;
+    }
+    .card-info{
+      height: 33%;
+      width: 100%;
+    }
+    .card-info-title{
+      width: 30%;
+      float: left;
+      background-color: var(--colorTerciario);
+    }
+    .card-info-data{
+      width: 70%;
+      float: left;
+      background-color: var(--colorTerciario);
+    }
+  }
+  
+  /* Resoluciones mayores a moviles*/
+  @media (min-width: 768px) {
+    /* results */
+   .card {
+     flex: 0 1 calc(50% - 1em);
+   }
+  }
+  @media (min-width: 1024px) {
+    /* results */
+   .card {
+     flex: 0 1 calc(28% - 1em);
+   }
+  }

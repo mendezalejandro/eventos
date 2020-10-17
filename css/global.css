@@ -18,5 +18,57 @@ html {
 }
 body {
   margin: 0;
+  background-color: #514c57;
 }
 
+/* header*/
+.header {
+  width: 100%;
+  height: 50px;
+  top: 0;
+  background: var(--colorPrimario);
+}
+.header-menu {
+  margin: 0;
+  padding: 0;
+}
+.header-logo {
+  float: left;
+  width: 70px;
+  height: 100%;
+  background: var(--colorSecundario);
+  background-repeat: no-repeat;
+  background-size: 70px 70px;
+}
+.header-title {
+  float: left;
+  margin-left: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 400 30px/1 Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.header-contact {
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 100%;
+  background: var(--colorSecundario);
+}
+
+/* footer */
+.footer-title {
+  height: 20px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  text-align: center;
+  font: 400 16px/1.5 Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  background-color: var(--colorPrimario);
+}

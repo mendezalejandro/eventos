@@ -1,60 +1,18 @@
+@import "./card.css";
+
 /* 
 main.css:
     -Contiene las clases que se utilizan solo en la pagina principal
 */
 
-body{
-  background-color: #514c57;
-}
-
 /* Móviles en vertical o tablets en vertical*/
 @media (min-width: 320px) {
-  /* header*/
-  .header {
-    width: 100%;
-    height: 50px;
-    top: 0;
-    background: var(--colorPrimario);
-  }
-  .header-menu {
-    margin: 0;
-    padding: 0;
-  }
-  .header-logo {
-    float: left;
-    width: 70px;
-    height: 100%;
-    background: var(--colorSecundario);
-    background-repeat: no-repeat;
-    background-size: 70px 70px;
-  }
-  .header-title {
-    float: left;
-    margin-left: 20px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font: 400 30px/1 Helvetica, Arial, sans-serif;
-    font-weight: bold;
-  }
-  .header-contact {
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70px;
-    height: 100%;
-    background: var(--colorSecundario);
-  }
-
   /* filters*/
   .filtersContainer {
     padding-top: 5px;
     height: 250px;
     background-color: #a2a0a5;
   }
-
   .filterTitle {
     display: flex;
     justify-content: center;
@@ -108,84 +66,8 @@ body{
   right: 0;
   overflow-y: auto; 
   }
-  .cards{
-    margin-left: 20px;
-    margin-right: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .card {
-    flex: 1 1 calc(100% - 1em);
-    background-color: #a2a0a5;
-    height: 220px;
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .card-title{
-    height: 10%;
-    background-color: var(--colorTerciario);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .card-image{
-    height: 60%;
-    background-color: #161625;
-  }
-  .card-image img{
-    position: center;
-    width: 100%;
-    height: 100%;
-  }
-  .card-description-container{
-    width: 100%;
-    height: 30%;
-    float: left;
-  }
-  .card-description{
-    width: 80%;
-    height: 100%;
-    float: left;
-  }
-  .card-share-detail{
-    width: 20%;
-    height: 100%;
-    float: left;
-  }
-  .card-share-button{
-    width: 100%;
-    height: 50%;
-    padding: 0%;
-    text-align: center;
-    text-justify: auto;
-  }
-  .card-detail-button{
-    width: 100%;
-    height: 50%;
-    padding: 0%;
-    text-align: center;
-    text-justify: auto;
-  }
-  .card-info{
-    height: 33%;
-    width: 100%;
-  }
-  .card-info-title{
-    width: 30%;
-    float: left;
-    background-color: var(--colorTerciario);
-  }
-  .card-info-data{
-    width: 70%;
-    float: left;
-    background-color: var(--colorTerciario);
-  }
 
   /* pagination*/
-
   .pagination {
     bottom: 20px;
     height: 30px;
@@ -198,8 +80,6 @@ body{
     background-color: var(--colorTerciario);
 
   }
-
-
   .paginationLeft{
     width: 10%;
     height: 100%;
@@ -209,7 +89,6 @@ body{
     justify-content: center;
     align-items: center;
   }
-
   .paginationCenter{
     width: 80%;
     height: 100%;
@@ -242,22 +121,9 @@ body{
     text-align: center;
     text-justify: auto;
   }
-
-  /* footer */
-  .footer-title {
-    height: 20px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    margin: 0;
-    text-align: center;
-    font: 400 16px/1.5 Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    background-color: var(--colorPrimario);
-  }
 }
 
-/* Móviles en horizontal o tablets en vertical*/
+/* Resoluciones mayores a moviles*/
 @media (min-width: 480px) {
   /* filters*/
   .filtersContainer {
@@ -294,18 +160,4 @@ body{
  .cardsContainer{
     top: 190px; 
   }
-}
-
-@media (min-width: 768px) {
-
-  /* results */
- .card {
-   flex: 0 1 calc(50% - 1em);
- }
-}
-@media (min-width: 1024px) {
-  /* results */
- .card {
-   flex: 0 1 calc(28% - 1em);
- }
 }
