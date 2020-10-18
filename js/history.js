@@ -106,13 +106,13 @@ function buildCard(eventoID, titulo, imagen, ciudad, fecha, categoria)
           '</div>'+
           '<div class="card-description-container">'+
               '<div class="card-description">'+
-                '<div class="card-info"><div class="card-info-title">Ciudad</div><div class="card-info-data">'+ciudad+'</div></div>'+
-                '<div class="card-info"><div class="card-info-title">Fecha</div><div class="card-info-data">'+fecha+'</div></div>'+
-                '<div class="card-info"><div class="card-info-title">Categoria</div><div class="card-info-data">'+categoria+'</div></div>'+
+                '<div class="card-info1"><div class="card-info-title">Ciudad</div><div class="card-info-data">'+ciudad+'</div></div>'+
+                '<div class="card-info2"><div class="card-info-title">Fecha</div><div class="card-info-data">'+fecha+'</div></div>'+
+                '<div class="card-info3"><div class="card-info-title">Categoria</div><div class="card-info-data">'+categoria+'</div></div>'+
               '</div>'+  
               '<div class="card-share-detail">'+
-                '<button class="card-share-button" role="link" onclick="openDetail(\''+eventoID+'\')">Detalle</button>'+
-                '<button class="card-detail-button" role="link" onclick="window.location=\'./share.html?eventid='+eventoID+'\'">Compartir</button>'+
+              '<button class="card-share-button" role="link" onclick="openDetail(\''+eventoID+'\')"><i class="fas fa-info-circle"></i></button>'+
+              '<button class="card-detail-button" role="link" onclick="window.location=\'./share.html?eventid='+eventoID+'\'"><i class="fas fa-share-alt-square"></i></button>'+
               '</div>'+
           '</div>'+
         '</article>'

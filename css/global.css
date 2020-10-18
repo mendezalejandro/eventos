@@ -51,7 +51,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font: 400 30px/1 Helvetica, Arial, sans-serif;
+  font-size: x-large;
   font-weight: bold;
 }
 .header-contact {
@@ -72,7 +72,7 @@ body {
   bottom: 0;
   margin: 0;
   text-align: center;
-  font: 400 16px/1.5 Helvetica, Arial, sans-serif;
   font-weight: bold;
+  font-size: large;
   background-color: var(--colorPrimario);
 }

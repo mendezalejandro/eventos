@@ -11,31 +11,35 @@ main.css:
   .filtersContainer {
     margin-top: 50px;
     padding-top: 5px;
-    height: 250px;
+    height: 275px;
     background-color: #a2a0a5;
   }
   .filterTitle {
     display: flex;
     justify-content: center;
     align-items: center;
-    font: 400 20px/1 Helvetica, Arial, sans-serif;
     font-weight: bold;
+    font-size: large;
     height: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    background-color: #514c57;
+    margin-bottom: 5px;
+    padding-top: 5px;
     padding-bottom: 5px;
+    background-color: var(--colorSecundario);
   }
   .filterLabel {
     display: flex;
     justify-content: start;
     align-items: flex-end;
-    font: 400 15px/1 Helvetica, Arial, sans-serif;
+    font-size: medium;
     padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     height: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    background-color: #514c57;
+    background-color: var(--colorSecundario);
   }
   .filterInputContainer {
     height: 35px;
@@ -55,12 +59,26 @@ main.css:
   .filterButton {
     width: 100%;
     height: 100%;
+    margin-top: 5px;
+    background-color: var(--colorPrimario); /* Green */
+    border: none;
+    color: var(--colorTerciario);
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: medium;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .filterButton:hover {
+    background-color: var(--colorSecundario);
+    color: var(--colorPrimario);
   }
 
    /* results */
  .cardsContainer{
   position: fixed;
-  top: 305px;
+  top: 315px;
   bottom: 55px; 
   padding-top: 15px;
   left: 0;
@@ -71,7 +89,7 @@ main.css:
 
   /* pagination*/
   .pagination {
-    bottom: 20px;
+    bottom: 25px;
     height: 30px;
     left:0;
     right: 0;
@@ -94,7 +112,7 @@ main.css:
   .paginationCenter{
     width: 80%;
     height: 100%;
-    color: black;
+    color: var(--colorPrimario);
     float: left;
     display: flex;
     justify-content: center;
@@ -113,15 +131,27 @@ main.css:
     width: 100%;
     height: 100%;
     padding: 0%;
-    text-align: center;
-    text-justify: auto;
+    background-color: var(--colorPrimario); 
+    border: medium;
+    color: var(--colorTerciario);    
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .paginationLeft button:hover{
+    background-color: var(--colorSecundario); 
   }
   .paginationRight button{
     width: 100%;
     height: 100%;
     padding: 0%;
-    text-align: center;
-    text-justify: auto;
+    background-color: var(--colorPrimario); 
+    border: medium;
+    color: var(--colorTerciario);    
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .paginationRigth button:hover{
+    background-color: var(--colorSecundario); 
   }
 }
 
@@ -129,12 +159,9 @@ main.css:
 @media (min-width: 480px) {
   /* filters*/
   .filtersContainer {
-    height: 135px;
+    height: 150px;
   }
-  .filterForm{
-    height: 55px;
-    margin: 0px;
-  }
+
   .filterStart {
       float: left;
       width: 33%;
@@ -148,14 +175,17 @@ main.css:
     width: 33%;
   }
   .filterButtonContainer {
-    margin-top: 10px;
     height: 35px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 20px auto;
+
   }
   .filterButton {
     width: 180px;
+    margin-top: 10px;
   }
 
  /* results */

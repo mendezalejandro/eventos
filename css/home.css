@@ -1,3 +1,10 @@
+/* body{
+    background-image: url("../img/portada.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    opacity: 0.1;
+} */
 .content{
     position: fixed;
     z-index: -1;
