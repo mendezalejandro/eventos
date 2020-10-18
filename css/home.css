@@ -1,3 +1,10 @@
+.content{
+    position: fixed;
+    z-index: -1;
+    margin-top: 50px;
+    padding-top: 15px;
+}
 h1, h2, p{
+    
     padding-left: 20px;
 }

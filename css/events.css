@@ -9,6 +9,7 @@ main.css:
 @media (min-width: 320px) {
   /* filters*/
   .filtersContainer {
+    margin-top: 50px;
     padding-top: 5px;
     height: 250px;
     background-color: #a2a0a5;
@@ -65,6 +66,7 @@ main.css:
   left: 0;
   right: 0;
   overflow-y: auto; 
+  z-index: -1
   }
 
   /* pagination*/
@@ -76,7 +78,7 @@ main.css:
     margin-left: 20px;
     margin-right: 20px;
     position: fixed;
-    
+    z-index: -1;
     background-color: var(--colorTerciario);
 
   }

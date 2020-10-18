@@ -4,7 +4,7 @@ function getEventos(nombre, categoria, fecha, onSuccess, onFail)
     //preparo los parametros de busqueda
     var params = 'events.json?';
     if(nombre!=='') params+='keyword='+nombre;
-    if(categoria!=='') params+='&segmentName='+categoria;
+    if(categoria!=='') params+='&segmentId='+categoria;
     if(fecha!=='') params+='&localStartEndDateTime='+fecha; //2020-11-21T00:00:00Z
 
     // hago un filtro general por pais españa y max de 25 items, para acortar un poco la busqueda

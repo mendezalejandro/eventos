@@ -10,6 +10,7 @@ main.css:
 @media (min-width: 320px) {
   /* Info page*/
   .pageInfoContainer {
+    margin-top: 50px;
     padding-top: 5px;
     height: 100px;
     background-color: #a2a0a5;
@@ -40,5 +41,6 @@ main.css:
     left: 0;
     right: 0;
     overflow-y: auto;
+    z-index: -1;
   }
 }

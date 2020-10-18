@@ -46,9 +46,6 @@ function loadEventos(data)
         var cardHTML = buildCard(evento.id, evento.name, imagen, evento._embedded.venues[0].city.name, evento.dates.start.localDate, evento.classifications[0].segment.name);
         $(cardHTML).appendTo($("#cards"));
     });
-
-    //updateo la paginacion
-    loadPagination();
 }
 
 /** Abre el modal con el id de evento */
