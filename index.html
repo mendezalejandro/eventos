@@ -7,13 +7,18 @@
     />
     <title>Eventos</title>
     <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <script src="./js/menu.js"></script>
+    <script>
+      	$(window).load(function() {
+          // Animate loader off screen
+          $(".bg-image").fadeIn("slow");;
+        });
+    </script>
   </head>
 
   <body>
@@ -43,7 +48,7 @@
     <div class="bg-image">
 
       </div>
-      <div class="bg-text">
+      <div class="animate__animated animate__fadeIn bg-text">
         <h1>Bienvenido/a a Eventos App!!</h1>
         <h2>Al mundo!</h2>
         <p>
