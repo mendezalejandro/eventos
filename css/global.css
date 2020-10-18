@@ -3,9 +3,9 @@ global.css:
     -Contiene las clases que se utilizan en todas las paginas
 */
 :root {
-  --colorPrimario: #1a1a1a;
-  --colorSecundario: #383838;
-  --colorTerciario: #9c9c9c;
+  --colorPrimario: #181818;
+  --colorSecundario: #283044;
+  --colorTerciario: #b9b9b9;
 }
 
 html {
