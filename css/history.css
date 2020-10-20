@@ -10,6 +10,7 @@ main.css:
 @media (min-width: 320px) {
   /* Info page*/
   .pageInfoContainer {
+    margin-top: 50px;
     padding-top: 5px;
     height: 100px;
     background-color: #a2a0a5;
@@ -19,13 +20,15 @@ main.css:
     display: flex;
     justify-content: center;
     align-items: center;
-    font: 400 20px/1 Helvetica, Arial, sans-serif;
     font-weight: bold;
+    font-size: large;
     height: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    background-color: #514c57;
+    margin-bottom: 5px;
+    padding-top: 5px;
     padding-bottom: 5px;
+    background-color: var(--colorPrimario);
   }
   .pageInfoContainer h3 {
     padding-left: 20px;
@@ -39,6 +42,7 @@ main.css:
     padding-top: 15px;
     left: 0;
     right: 0;
-    overflow-y: auto;
+    overflow-y: auto; 
+    z-index: -1
   }
 }

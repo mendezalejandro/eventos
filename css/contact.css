@@ -3,170 +3,125 @@ contact.css:
     -Contiene las clases que se utilizan solo en la pagina de contacto
 */
 
-.container {
-    position: relative;
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #01161e;
-    overflow: hidden;
-    
-    &__background {
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('https://images.unsplash.com/photo-1500241770736-a3f62bbc8717');
-        background-size: 150%;
-        background-position: center center;
-        animation: move 30s infinite linear;
-        will-change: transform;
-    }
+/* Mapa */
+.contenedor
+{
+    height: 550px;
+    overflow-y: scroll;
 }
 
-/* Mapa */
-#myMap{
-    position: fixed;
-    height: 350px; 
-    width: 100%;
-    top: 70%;
-  
-}
 
 .mask-container {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin: 5rem 0;
-    
-    
-    &::before,
-    
-    &::after {
-        content: '';
-        position: absolute;
-        width: 5000%;
-        height: 300%;
-        left: 0;
-        background-color: #01161e;
-    }
-    
-    &::before {
-        top: -295%;
-    }
-    
-    &::after {
-        bottom: -295%;
-    }
-
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 5rem 0;
 }
 
 svg {
-    width: 100%;
-    height: auto;
-    max-width: 1024px;   
+  width: 100%;
+  height: auto;
+  max-width: 1024px;
 }
-
-
-
 
 /*  Quienes somos */
 
-.about-services{
-    background: #000000d2;
-    padding-bottom: 30px;
+.about-services {
+  margin-top: 50px;
+  background: #000000d2;
+  padding-bottom: 30px;
+  height: 100%;
 }
 
 .titulo {
-    text-align: center;
-    font: oblique bold 120% cursive;
+  text-align: center;
+  font: oblique bold 120% cursive;
+}
+.titulo h3 {
+  margin-top: 0;
 }
 
-.servicio-cont{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+.servicio-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.servicio-ind{
-    width: 30%;  /* texto centrado */
-    text-align: center;
+.servicio-ind {
+  width: 30%; /* texto centrado */
+  text-align: center;
 }
 
-.servicio-ind img{
-    width: 50%;
+.servicio-ind img {
+  width: 50%;
 }
 
-.servicio-ind h3{
-    margin: 25px 0;
+.servicio-ind h3 {
+  margin: 25px 0;
 }
 
-.servicio-ind p{
-    font-weight: 250;
-    text-align: center;
+.servicio-ind p {
+  font-weight: 250;
+  text-align: center;
 }
 
-.contenedor-final{
-    display: flex;
-    width: 90%;
-    justify-content: space-evenly;
-    margin: auto;
-    padding-bottom: 50px;
-    border-bottom: 1px solid #ccc;
+.contenedor-final {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: auto;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #ccc;
+}
+.contenedor-map
+{
+    width: 100%;
+    height: 250px;
+
+}
+#myMap {
+    position: relative;
+    height: inherit;
+    width: inherit;
+    z-index: 0;
+ }
+
+.content-fin {
+  text-align: center;
 }
 
-.content-fin{
-    text-align: center;
+.content-fin h4 {
+  color: #fff;
+  border-bottom: 3px solid #af20d3;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.content-fin h4{
-    color: #fff;
-    border-bottom: 3px solid #af20d3;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-.content-fin p{
-    color: #ccc;
+.content-fin p {
+  color: #ccc;
 }
 
 /* Iconos redes sociales*/
 
-.redes h3{
-    margin: 25px 0;
+.redes h3 {
+  margin: 25px 0;
 }
 
-.redes img{
-    width: 15%;
-    padding: 4%;
-    
+.redes img {
+  width: 15%;
+  padding: 4%;
 }
-
-
-
-
 
 @keyframes move {
-    
-    25% {
-        transform: translateY(50px) translateX(0);
-    }
-    
-    50% {
-        transform: translateY(0px) translateX(50px);
-    }
-    
-    75% {
-        transform: translateY(50px) translateX(0);
-    }
-    
+  25% {
+    transform: translateY(50px) translateX(0);
+  }
+
+  50% {
+    transform: translateY(0px) translateX(50px);
+  }
+
+  75% {
+    transform: translateY(50px) translateX(0);
+  }
 }
-
-
-
-
-

@@ -7,13 +7,18 @@
     />
     <title>Eventos</title>
     <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <script src="./js/menu.js"></script>
+    <script>
+      	$(window).load(function() {
+          // Animate loader off screen
+          $(".bg-image").fadeIn("slow");;
+        });
+    </script>
   </head>
 
   <body>
@@ -22,6 +27,7 @@
       <header>
         <ul class="header-menu">
           <li class="header-logo">
+            <button class="openbtn" onclick="openMenu()">☰</button>
             <div id="menu" class="sidepanel">
               <a
                 href="javascript:void(0)"
@@ -34,30 +40,34 @@
               <a href="pages/contact.html">Contacto</a>
               <a href="pages/history.html">Historial</a>
             </div>
-            <button class="openbtn" onclick="openMenu()">☰</button>
           </li>
           <li class="header-title">Eventos app</li>
         </ul>
       </header>
     </div>
-    <div class="animate__animated animate__fadeIn">
-      <h1>Bienvenido/a a Eventos App!!</h1>
-      <h2>Al mundo!</h2>
-      <p>
-        Desde nuestra aplicación podrás buscar los eventos mas relevantes de
-        diferentes puntos del planeta
-      </p>
-      <h2>Piensa rapido!</h2>
-      <p>
-        Podés filtrar las busquedas para que sean mas sencillo encontrar lo que
-        buscar!
-      </p>
-      <h2>No estás solo!</h2>
-      <p>
-        Compartí con tus amigos lo que encontraste a través de un email de una
-        manera rapida y sencilla!
-      </p>
-    </div>
+    <div class="bg-image">
+
+      </div>
+      <div class="animate__animated animate__fadeIn bg-text">
+        <h1>Bienvenido/a a Eventos App!!</h1>
+        <h2>Al mundo!</h2>
+        <p>
+          Desde nuestra aplicación podrás buscar los eventos mas relevantes de
+          diferentes puntos del planeta
+        </p>
+        <h2>Piensa rapido!</h2>
+        <p>
+          Podés filtrar las busquedas para que sean mas sencillo encontrar lo que
+          buscar!
+        </p>
+        <h2>No estás solo!</h2>
+        <p>
+          Compartí con tus amigos lo que encontraste a través de un email de una
+          manera rapida y sencilla!
+        </p>
+      </div> 
+        </div>
+   
   </body>
 
   <!-- footer -->

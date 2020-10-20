@@ -40,7 +40,8 @@ function load()
 /**Busca y carga las categorias en el select de jqueryui */
 function loadCategorias()
 {
-    var categorias = [];
+    //$('#inputCategoria').selectmenu("option", "width", 100);
+    
     // busco las categorias
     getCategorias(function(data){
 
@@ -48,13 +49,8 @@ function loadCategorias()
         data._embedded.classifications.forEach(categoria => {
             if(categoria.segment !== undefined)
             {
-                categorias.push(categoria.segment.name);
+                $('#inputCategoria').append($('<option>').val(categoria.segment.id).text(categoria.segment.name))
             }
-        });
-
-        // cargo las categorias al input
-        $("#inputCategoria").autocomplete({
-            source: categorias
         });
     });
 }
@@ -62,7 +58,6 @@ function loadCategorias()
 function loadFechas()
 {
     const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    var fechas = [];
 
     for(var mes=0; mes<12; mes++)
     {
@@ -70,29 +65,9 @@ function loadFechas()
 
         const primerDia = fechaReferencia.startOf('month').format('yyyy-MM-DDTHH:mm:ss');
         const ultimoDia   = fechaReferencia.endOf('month').format('yyyy-MM-DDTHH:mm:ss');
-        fechas.push({
-            label: meses[fechaReferencia.month()] +' '+fechaReferencia.year(),
-            value:{
-                fechaDesde: primerDia,
-                fechaHasta: ultimoDia
-            }
-        });
-    }
 
-    //localStartEndDateTime=2020-11-01T00:00:00,2020-11-01T00:00:00
-    // cargo las categorias al input
-    $("#inputFecha").autocomplete({
-        source: fechas,
-        focus: function( event, ui ) {
-            event.preventDefault();
-            $('#inputFecha').val(ui.item.label);
-          },
-        select: function( event, ui ) {
-           event.preventDefault();
-           $('#inputFecha').val(ui.item.label);
-           
-          }
-    });
+        $('#inputFecha').append($('<option>').val(primerDia+','+ultimoDia).text(meses[fechaReferencia.month()] +' '+fechaReferencia.year()))
+    }
 }
 
 /**Busca los eventos con los filtros elegidos */
@@ -101,11 +76,10 @@ function buscarEventos()
     // obtengo los parametros de busqueda
     const nombre = $('#inputNombre').val();
     const categoria = $('#inputCategoria').val();
-    const fechas =  $('#inputFecha').autocomplete( "option", "source" ).find(value => value.label === $('#inputFecha').val());
-    const fecha = (fechas!==undefined ? fechas.value.fechaDesde+','+fechas.value.fechaHasta : '');
+    const fechas =  $('#inputFecha').val();
 
     // busco los eventos
-    getEventos(nombre,categoria,fecha,loadEventos);
+    getEventos(nombre,categoria,fechas,loadEventos);
 }
 /**Carga los eventos encontrados en la pantalla */
 function loadEventos(data)
@@ -235,13 +209,13 @@ function buildCard(eventoID, titulo, imagen, ciudad, fecha, categoria)
           '</div>'+
           '<div class="card-description-container">'+
               '<div class="card-description">'+
-                '<div class="card-info"><div class="card-info-title">Ciudad</div><div class="card-info-data">'+ciudad+'</div></div>'+
-                '<div class="card-info"><div class="card-info-title">Fecha</div><div class="card-info-data">'+fecha+'</div></div>'+
-                '<div class="card-info"><div class="card-info-title">Categoria</div><div class="card-info-data">'+categoria+'</div></div>'+
+                '<div class="card-info1"><div class="card-info-title">Ciudad</div><div class="card-info-data">'+ciudad+'</div></div>'+
+                '<div class="card-info2"><div class="card-info-title">Fecha</div><div class="card-info-data">'+fecha+'</div></div>'+
+                '<div class="card-info3"><div class="card-info-title">Categoria</div><div class="card-info-data">'+categoria+'</div></div>'+
               '</div>'+  
               '<div class="card-share-detail">'+
-                '<button class="card-share-button" role="link" onclick="openDetail(\''+eventoID+'\')">Detalle</button>'+
-                '<button class="card-detail-button" role="link" onclick="window.location=\'./share.html?eventid='+eventoID+'\'">Compartir</button>'+
+                '<button class="card-share-button" role="link" onclick="openDetail(\''+eventoID+'\')"><i class="fas fa-info-circle"></i></button>'+
+                '<button class="card-detail-button" role="link" onclick="window.location=\'./share.html?eventid='+eventoID+'\'"><i class="fas fa-share-alt-square"></i></button>'+
               '</div>'+
           '</div>'+
         '</article>'
