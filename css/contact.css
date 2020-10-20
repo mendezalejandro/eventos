@@ -6,7 +6,7 @@ contact.css:
 /* Mapa */
 .contenedor
 {
-    height: 550px;
+    height: 100%;
     overflow-y: scroll;
 }
 
@@ -34,8 +34,9 @@ svg {
 }
 
 .titulo {
+  padding-top: 20px;
   text-align: center;
-  font: oblique bold 120% cursive;
+  /* font: oblique bold 120% cursive; */
 }
 .titulo h3 {
   margin-top: 0;
@@ -77,13 +78,13 @@ svg {
 {
     width: 100%;
     height: 250px;
-
+    z-index: -1;
 }
 #myMap {
     position: relative;
     height: inherit;
     width: inherit;
-    z-index: 0;
+
  }
 
 .content-fin {
