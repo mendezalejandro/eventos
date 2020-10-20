@@ -2,6 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Compartir</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/share.css" />
     <script
@@ -9,53 +10,51 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-    
+    <script src="../js/service.js"></script>
+    <script src="../js/share.js"></script>
+
   </head>
 
 <body>
 
   <div class="contenedor">
-
-    <h1>Compartir con un amigo</h1>
+    <div class="contenedor-title">
+      <h1>COMPARTIR EVENTO CON UN AMIGO</h1>
+    </div>
 
     <div class="contenido">
+      <!--------------- MUESTRO LA INFO DE LOS EVENTOS -------------------------->  
 
-        <div class="info">
-
-            <div class="col">
-                <i class=""></i>
-                <p></p>
+        <div id="infoCard" class="cards">
+            <div class="infoEventCard-header">
             </div>
-
-            <div class="col">
-                <i class=""></i>
-                <p></p>
-            </div>
-
-            <div class="col">
-                <i class=""></i>
-                <p></p>
-            </div>
-
-          
+            <div class="infoEventCard-body">
+            </div>  
         </div>
+        <!-------------------------------- FORMULARIO -------------------------->
 
-        <form action="enviado.html" method="GET" class="formulario">
+        <form action="" method="GET" class="formulario" onsubmit="return validarFormulario();">
             <input type="text" name="correo_E" placeholder="Correo electrónico emisor" id="correo_E">
             <input type="text" name="correo_D" placeholder="Correo electrónico destino" id="correo_D">
             <input type="text" name="asunto" placeholder="Asunto" id="asunto">
             <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
-            <button type="button" onclick="validarFormulario()" >Enviar</button>
-
-
+            
+            <input class="formulario__botones" type="button" onclick="validarFormulario(); sendMail();" value="Enviar">
+            <input class="formulario__botones" type="button" onclick="alertaCancelar();" value="Cancelar">
+            
+            
         </form>
 
     </div>
 
 </div>
-  <script src="../js/enviroment.js"></script>
-  <script src="../js/share.js"></script>
+    <script src="../js/enviroment.js"></script>
+    
 
 </body>
+<!-- footer -->
+  <footer>
+    <h2 class="footer-title">&copy; Site Design by AR-AM | Eventos App</h2>
+  </footer>
 
 </html>

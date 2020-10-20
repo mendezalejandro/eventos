@@ -8,17 +8,70 @@ $( document ).ready(function() {
     const url_string = window.location.href
     const url = new URL(url_string);
     eventoID = url.searchParams.get("eventid");
-    
+
+    /* Llamo a la funcion que trae la info del evento */
+    openDetail(eventoID);
 });
 
-/* 
-share.js:
-    -Contiene la logica de la pagina "Compartir"
-*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var infoEventCard;
+
+/**Espero a que renderice el HTML */
+$( document ).ready(function() {
+    
+    infoEventCard = document.getElementById("infoCard");
+});
 
 
+ // Muestro el evento seleccionado dentro de la pagina del formulario
 
-// creamos la funcion
+function openDetail(eventoid)
+{
+
+    //voy a buscar detalles del evento
+    getEventoDetalle(eventoid, loadDetail);
+}
+
+
+/** Busca y carga el detalle del evento */
+function loadDetail(data)
+{
+    // busco la imagen del tamaño minimo
+    var imagen;
+    data.images.forEach(image => {
+        if(image.width < 480)
+            imagen= image.url;
+        return false;
+    });
+
+    // cargo el titulo 
+    $('.infoEventCard-header').html("<h2>"+data.name+"</h2>");
+
+    // cargo la info del evento
+    var eventInfo =    
+      
+      '<div class="infoImg"><img src="'+imagen+'"></div>'+
+
+      '<div class="infoTitle"><h3>Clasificación</h3></div>'+
+      '<div class="infoData"><p>'+data.classifications[0].genre.name+', '+data.classifications[0].segment.name+', '+data.classifications[0].subGenre.name+', '+'</p></div>'+      
+
+      (data.info!==undefined ? 
+        '<div class="infoTitle"><h3>Info</h3></div>'+
+        '<div class="infoData"><p>'+data.info+'</p></div>'
+        :'') 
+      ;
+    $('.infoEventCard-body').html(eventInfo);
+
+    infoEventCard.style.display = "block";
+}
+
+// ------ VALIDACIONES -----------------------
+//-------------------------------------------------------------------------------------------------------------
+
+
+// creamos la funcion para validar el formulario
 function validarFormulario(){
     // removemos el div con la clase alert
     $('.alert').remove();
@@ -40,7 +93,7 @@ function validarFormulario(){
     }else{
         var expresion= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
         if(!expresion.test(correo_E)){
-            // mostrara el mesaje que debe ingresar un nombre válido
+            // muestra el mesaje que debe ingresar un nombre válido
             cambiarColor("correo_E");
             mostraAlerta("Por favor ingrese un correo válido");
             return false;
@@ -58,16 +111,15 @@ function validarFormulario(){
     }else{
         var expresion= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
         if(!expresion.test(correo_D)){
-            // mostrara el mesaje que debe ingresar un nombre válido
+            // muestra el mesaje que debe ingresar un correo válido
             cambiarColor("correo_D");
             mostraAlerta("Por favor ingrese un correo válido");
             return false;
         }
     }
 
-    // validamos el asunto
+    // valido el asunto
     if(asunto=="" || asunto==null){
-
         cambiarColor("asunto");
         // mostramos le mensaje de alerta
         mostraAlerta("Campo obligatorio");
@@ -75,38 +127,20 @@ function validarFormulario(){
     }else{
         var expresion= /^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$/;
         if(!expresion.test(asunto)){
-            // mostrara el mesaje que debe ingresar un nombre válido
+            // mostrara el mesaje que debe ingresar un texto válido en el asunto
             cambiarColor("asunto");
             mostraAlerta("No se permiten caracteres especiales");
             return false;
         }
     }
 
-     // validamos el mensaje
-     if(mensaje=="" || mensaje==null){
-
-        cambiarColor("mensaje");
-        // mostramos le mensaje de alerta
-        mostraAlerta("Campo obligatorio");
-        return false;
-    }else{
-        var expresion= /^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$/;
-        if(!expresion.test(mensaje)){
-            // mostrara el mesaje que debe ingresar un nombre válido
-            cambiarColor("mensaje");
-            mostraAlerta("No se permiten caracteres especiales");
-            return false;
-        }
-    }
-
-    $('form').submit();
     return true;
     
 } 
 
 $('input').focus(function(){
     $('.alert').remove();
-    
+    colorDefault('correo_E');
     colorDefault('correo_D');
     colorDefault('asunto');
 });
@@ -126,12 +160,40 @@ function colorDefault(dato){
 // creamos una funcio para cambiar de color a su bordes de los input
 function cambiarColor(dato){
     $('#' + dato).css({
-        border: "1px solid #dd5144"
+        border: "3px solid #dd5144"
     });
 }
 
-// funcion para mostrar la alerta
-
 function mostraAlerta(texto){
-    $('#correo_E').before('<div class="alert">Error: '+ texto +'</div>');
+    $('#').before('<div class="alert">Error: '+ texto +'</div>');
+    
+}
+
+
+// funcion para mostrar alerta boton Cancelar
+
+function alertaCancelar() {
+
+    var mensaje;
+	var opcion = confirm("¿Desea volver a la pagina anterior?");
+	
+    if (opcion == true) {
+		history.go(-1)
+		
+	} else {
+		mensaje = "Has clickeado Cancelar";
+	}
+}
+
+// Funcion enviar mail, obtiene el mail destino, asunto y mensaje ingresado en el formulario.
+
+
+function sendMail() {
+    var link = "mailto:" + encodeURIComponent(document.getElementById('correo_D').value)
+             + "?cc=" 
+             + "&subject=" + encodeURIComponent(document.getElementById('asunto').value)
+             + "&body=" + encodeURIComponent(document.getElementById('mensaje').value)
+    ;
+    
+    window.location.href = link;
 }

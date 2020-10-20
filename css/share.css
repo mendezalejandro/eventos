@@ -34,10 +34,9 @@ body{
 }
 
 .contenedor{
-    width: 90%;
-    max-width: 1000px;
-    background: #fff;
-    padding: 40px;
+    
+    background: var(--colorTerciario);
+    padding: 30px;
     margin: 20px auto;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
 }
@@ -47,7 +46,7 @@ body{
     font-weight: 600;
     text-align: center;
     margin-bottom: 25px;
-    color: #9415cf;
+    color: var(--colorPrimario);
 }
 
 .contenido{
@@ -57,13 +56,59 @@ body{
     flex-wrap: wrap;
 }
 
-.contenido .info,
+.contenido .infoCard{
+    width: 50%;
+    height: 500px;
+    background: var(--colorSecundario);
+    
+}
 .contenido .formulario{
     width: 50%;
+    height: 500px;
+    
 }
 
+.formulario__botones {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+}
+
+.contenedor-title{
+    height: 10%;
+    
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+    
 
 
+/* Card con info del evento */
+
+
+.cards {
+    background: var(--colorSecundario);
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 95%;
+    justify-content: space-evenly;
+    border-radius: 25px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+}
+
+.cards .infoEventCard-header {
+    padding: 2px 16px;
+    background-color: var(--colorSecundario);
+    color: white;
+    display: flex;
+    border-radius: 25px;
+    text-align: center;
+  }
+
+.cards .infoEventCard-body {padding: 20px 16px;}
 
 
 /* ===========================================
@@ -101,12 +146,15 @@ Estilos del formulario
 .formulario button{
     padding: 12px 30px;
     border: transparent;
-    background: #9415cf;
+    background: var(--colorSecundario);
     color: #fff;
     cursor: pointer;
     float: right;
 }
 
+/* ===========================================
+Fin Estilos del formulario
+============================================== */
 
 @media (max-width: 520px){
    .contenedor{
@@ -122,6 +170,7 @@ Estilos del formulario
    .contenido .info{
        margin-bottom: 30px;
    }
+   
 }
 
 @media (max-width: 800px){

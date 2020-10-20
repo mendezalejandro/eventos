@@ -195,6 +195,7 @@ function loadDetail(data)
 
     // cargo el titulo del modal
     $(".modal-header").html("<h2>"+data.name+"</h2>");
+    
 
     // cargo la info del evento
     var eventInfo =    
